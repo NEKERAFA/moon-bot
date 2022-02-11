@@ -10,11 +10,21 @@ require "auth"
 -- Connect to Twitch server
 local client = twitch.connect(_USERNAME, _TOKEN_AUTH)
 
+-- Create a echo command
+local function echo(client, channel, username, ...)
+    local msg = ""
+    for _, value in ipairs({...}) do
+        msg = msg .. value .. " "
+    end
+
+    client:message(channel, string.format("@%s %s", username, msg))
+end
+
 -- Join to our channel
 client:join(_CHANNEL)
 -- Send a message in our channel
 client:message(_CHANNEL, "Hello world!")
--- Leave our channel
-client:leave(_CHANNEL)
--- Closes client
-client:close()
+-- Add a command
+client:attach("echo", _CHANNEL, echo)
+-- Run commands
+client:runcommands()

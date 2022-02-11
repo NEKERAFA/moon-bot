@@ -30,4 +30,4 @@ _TOKEN_AUTH = "<OATH_TOKEN>" -- The token to authenticate your bot with Twitch's
 _CHANNEL = "<CHANNEL_NAME>" -- The Twitch channel name where you want to run the bot.
 ```
 
-> Note: Bot username and channel name may be the same. Many streamers choose to create another account to their bots.
+> Note: Bot username and channel name may be the same. Also, many streamers choose to create another account to their bots.
