@@ -1,0 +1,3 @@
+[submodule "dependencies/share/lua/5.4/twitch"]
+	path = dependencies/share/lua/5.4/twitch
+	url = https://github.com/NEKERAFA/twitch.lua.git
