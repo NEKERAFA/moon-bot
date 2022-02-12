@@ -17,7 +17,7 @@ local function echo(client, channel, username, ...)
         msg = msg .. value .. " "
     end
 
-    client:message(channel, string.format("@%s %s", username, msg))
+    client:message(string.format("@%s %s", username, msg), channel)
 end
 
 -- Join to our channel
