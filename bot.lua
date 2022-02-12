@@ -17,7 +17,7 @@ local function echo(client, channel, username, ...)
         msg = msg .. value .. " "
     end
 
-    client:message(string.format("@%s %s", username, msg), channel)
+    client:message(channel, string.format("@%s %s", username, msg))
 end
 
 -- Join to our channel
@@ -27,4 +27,4 @@ client:message(_CHANNEL, "Hello world!")
 -- Add a command
 client:attach("echo", _CHANNEL, echo)
 -- Run commands
-client:runcommands()
+client:loop()
