@@ -1,3 +1,3 @@
 #!/bin/bash
 
-lua -l config bot.lua
+lua bot.lua

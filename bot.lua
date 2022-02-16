@@ -4,8 +4,10 @@
 -- Under GNU General Public License v3.0
 -- Copyright (c) 2022 - Rafael Alcalde Azpiazu (NEKERAFA)
 
-local twitch = require "twitch.twitch"
+require "packages"
 require "auth"
+
+local twitch = require "twitch.twitch"
 
 -- Connect to Twitch server
 local client = twitch.connect(_USERNAME, _TOKEN_AUTH)
@@ -17,14 +19,19 @@ local function echo(client, channel, username, ...)
         msg = msg .. value .. " "
     end
 
-    client:message(channel, string.format("@%s %s", username, msg))
+    client:send(channel, string.format("@%s %s", username, msg))
 end
 
 -- Join to our channel
 client:join(_CHANNEL)
 -- Send a message in our channel
-client:message(_CHANNEL, "Hello world!")
+client:send(_CHANNEL, "Hello world!")
 -- Add a command
 client:attach("echo", _CHANNEL, echo)
+-- Add a not found command
+function client:commandnotfound(channel, username, command)
+    self:send(channel, string.format("Command !%s not found", command))
+end
+
 -- Run commands
 client:loop()
