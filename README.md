@@ -15,6 +15,7 @@
 **Using LuaRocks**
 
 ```sh
+sudo apt-get install libssl-dev
 git submodule update --init
 luarocks install luasocket --tree rocks
 luarocks install luasec --tree rocks
