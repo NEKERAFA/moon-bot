@@ -16,8 +16,8 @@
 
 ```sh
 git submodule update --init
-luarocks install luasocket --tree dependencies
-luarocks install luasec --tree dependencies
+luarocks install luasocket --tree rocks
+luarocks install luasec --tree rocks
 ```
 
 ## Configuration
