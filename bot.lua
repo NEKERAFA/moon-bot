@@ -29,9 +29,13 @@ client:send(_CHANNEL, "Hello world!")
 -- Adds a command
 client:attach("echo", _CHANNEL, echo)
 -- Adds a not found command
-function client:commandnotfound(channel, username, command)
+function client:commandnotfound(channel, _, command)
     self:send(channel, string.format("Command !%s not found", command))
 end
+-- Adds a timer
+client:settimer("timer", 2 * 30, function ()
+    client:send(_CHANNEL, "A timer!! :)")
+end)
 
 -- Runs commands
 client:loop()
